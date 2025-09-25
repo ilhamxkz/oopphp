@@ -9,14 +9,14 @@ $rows = $jabatanModel->all('created_at DESC');
 </div>
 <div class="table-responsive">
 <table class="table table-bordered">
-<thead><tr><th>#</th><th>Jabatan</th><th>Gaji Pokok</th><th>Tunjgan</th><th>Aksi</th></tr></thead>
+<thead><tr><th>#</th><th>Jabatan</th><th>Gaji Pokok</th><th>Tunjangan</th><th>Aksi</th></tr></thead>
 <tbody>
 <?php foreach($rows as $i=>$r): ?>
 <tr>
 <td><?= $i+1 ?></td>
 <td><?= htmlspecialchars($r['jabatan']) ?></td>
-<td><?= number_format($r['gaji_pokok'],2) ?></td>
-<td><?= number_format($r['tunjangan'],2) ?></td>
+<td>Rp <?= number_format($r['gaji_pokok'],0,',','.') ?></td>
+<td>Rp <?= number_format($r['tunjangan'],0,',','.') ?></td>
 <td>
 <a class="btn btn-sm btn-primary" href="?page=jabatan&action=edit&id=<?= $r['id_jabatan'] ?>">Edit</a>
 <a class="btn btn-sm btn-danger" href="?page=jabatan&action=delete&id=<?= $r['id_jabatan'] ?>" onclick="return confirm('Hapus?')">Delete</a>
