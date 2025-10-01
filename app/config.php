@@ -2,7 +2,7 @@
 // app/config.php
 return (object) [
     'db' => [
-        'host' => '192.168.100.135',
+        'host' => '127.0.0.1',
         'dbname' => 'kantor',
         'user' => 'dev',
         'pass' => 'dev123',

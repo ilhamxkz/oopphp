@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../BaseModel.php';
 class Rating extends BaseModel {
     protected $table = 'rating';
+    protected $pk = 'id_rating';
     public function create($data) {
         $sql = "INSERT INTO rating (rating, persentase_bonus) VALUES (:rating, :persentase_bonus)";
         return $this->pdo->prepare($sql)->execute($data);

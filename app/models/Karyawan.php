@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../BaseModel.php';
 class Karyawan extends BaseModel {
     protected $table = 'karyawan';
+    protected $pk = 'id_karyawan';
 
     public function create($data) {
         $sql = "INSERT INTO karyawan (id_jabatan, id_rating, nama, divisi, alamat, umur, jenis_kelamin, status)

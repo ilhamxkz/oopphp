@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../BaseModel.php';
 class Lembur extends BaseModel {
     protected $table = 'lembur';
+    protected $pk = 'id_lembur';
     public function create($data) {
         $sql = "INSERT INTO lembur (tarif) VALUES (:tarif)";
         return $this->pdo->prepare($sql)->execute($data);
