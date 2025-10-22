@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
+use App\Models\Karyawan;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\RatingController;
@@ -10,7 +11,12 @@ use App\Http\Controllers\LemburController;
 use App\Http\Controllers\GajiController;
 
 Route::get('/', function () {
-    return view('welcome');
+    $latestKaryawan = Karyawan::with(['jabatan', 'rating'])
+        ->orderByDesc('created_at')
+        ->limit(10)
+        ->get();
+
+    return view('welcome', compact('latestKaryawan'));
 })->name('home');
 
 Route::get('dashboard', function () {
